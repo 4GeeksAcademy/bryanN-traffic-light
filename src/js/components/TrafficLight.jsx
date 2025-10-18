@@ -9,12 +9,39 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const TrafficLight = () => {
 
 	const [activelight, setActiveLight] = useState('');
+	const [lightchange, setLightchange] = useState(true)
 
 	const getBoxShadow = (color) => {
 		if (activelight === color) {
 			return `0 0 30px 10px ${color}`;
-		}return 'none';
+		} return 'none';
 	};
+
+	const lightchangeOn = () => {
+
+		setLightchange(true)
+
+		setActiveLight('green')
+
+		setTimeout(() => {
+
+			setActiveLight('yellow')
+
+			setTimeout(() => {
+
+				setActiveLight('red')
+
+				setTimeout(() => {
+					setActiveLight('')
+					setLightchange(false)
+				}, 7000);
+
+			}, 3000);
+		}, 5000);
+
+	};
+
+
 
 	return (
 		<div className="d-flex flex-column align-items-center">
@@ -48,7 +75,7 @@ const TrafficLight = () => {
 					}}>
 				</button>
 			</div>
-
+			<button onClick={lightchangeOn} type="button" className="btn btn-success mt-4">Success</button>
 		</div>
 	);
 };
