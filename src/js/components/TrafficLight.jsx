@@ -75,7 +75,7 @@ const TrafficLight = () => {
 					}}>
 				</button>
 			</div>
-			<button onClick={lightchangeOn} type="button" className="btn btn-success mt-4">Success</button>
+			<button onClick={lightchangeOn} type="button" className="btn btn-success mt-4">Start Light!</button>
 		</div>
 	);
 };
